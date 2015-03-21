@@ -94,7 +94,7 @@ void print_string(unsigned char *string, int stringlen)
 /**
  *  NOTE: This extension automatically initializes secp256k1 for the
  *  desired operation - you don't need to call this yourself.
- *
+ * 
  *  Initialize the library. This may take some time (10-100 ms).
  *  You need to call this before calling any other function.
  *  It cannot run in parallel with any other functions, but once
