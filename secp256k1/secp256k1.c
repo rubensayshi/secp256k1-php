@@ -210,11 +210,12 @@ PHP_FUNCTION(secp256k1_ecdsa_sign) {
        return;
     }
 
-    unsigned char newsig[70];
+    unsigned char newsig[71];
     int newsiglen, result;
     result = secp256k1_ecdsa_sign(msg32, newsig, &newsiglen, seckey, NULL, NULL);
 
     if (result) {
+        newsig[newsiglen] = 0U;
         ZVAL_STRINGL(signature, newsig, newsiglen, 1);
         ZVAL_LONG(signatureLen, newsiglen);
     }
