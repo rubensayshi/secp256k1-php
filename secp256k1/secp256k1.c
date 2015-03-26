@@ -211,7 +211,9 @@ PHP_FUNCTION(secp256k1_ecdsa_sign) {
     }
 
     unsigned char newsig[72];
-    int newsiglen, result;
+    int newsiglen = 72;
+    int result;
+    
     result = secp256k1_ecdsa_sign(msg32, newsig, &newsiglen, seckey, NULL, NULL);
 
     if (result) {
